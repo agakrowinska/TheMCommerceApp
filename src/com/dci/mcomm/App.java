@@ -83,7 +83,7 @@ public class App {
 				}
 				break;
 			case 4:
-				System.out.print("List fo Product Categories:");
+				System.out.print("List of Product Categories:");
 				System.out.println(catService.list());
 				break;
 			case 0:

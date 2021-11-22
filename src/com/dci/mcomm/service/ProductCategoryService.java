@@ -9,7 +9,7 @@ public interface ProductCategoryService {
 	public ProductCategory add();
 
 	// add a new ProductCategory to the list
-	public ProductCategory add(ProductCategory category);
+	public String add(ProductCategory category);
 	
 	// collect new details of an existing ProductCategory and update the list
 	public ProductCategory update(int id);
