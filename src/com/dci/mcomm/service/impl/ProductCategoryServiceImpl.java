@@ -7,8 +7,13 @@ import java.util.Scanner;
 import com.dci.mcomm.entity.ProductCategory;
 import com.dci.mcomm.service.ProductCategoryService;
 
+import static java.lang.Integer.parseInt;
+
 public class ProductCategoryServiceImpl implements ProductCategoryService {
 	Scanner userInputCategory = new Scanner(System.in);
+	//ArrayList<String> product = new ArrayList<String>();
+	ProductCategory productList = new ProductCategory();
+
 
 
 	// collect details of a new ProductCategory and add to the list
@@ -18,19 +23,20 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 		//add the input from the user to the list of Categories
 		System.out.println("What is the name of the category you want to add?");
 		String categoryName = userInputCategory.nextLine();
+		System.out.println("Whats the ID of the category?");
+		String categoryID = userInputCategory.nextLine();
+		productList.setId(parseInt(categoryID));
+		productList.setLabel(categoryName);
 
-		return null;
+		return productList;
 	}
+
 
 	// add a new ProductCategory to the list
 	@Override
 	public String add(ProductCategory category) {
-		//I want to add the new category from previous method to ProductCategory
-		String category = userInputCategory.nextLine();
-		ArrayList <String> userAdded = new ArrayList<String>();
-		userAdded.add(category);
 
-		return category;
+		return null;
 
 		}
 
@@ -38,17 +44,20 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 	// collect new details of an existing ProductCategory and update the list
 	@Override
 	public ProductCategory update(int id) {
-		//ask user about ID of new Category
-		System.out.println("What is the ID of the category?");
-		String userIDInput = userInputCategory.nextLine();
-		int newCategoryID = Integer.parseInt(userIDInput);
+		//Id is unique for every product
+		System.out.println("What is the new Category for this ID?");
+		String updatedCategory = userInputCategory.nextLine();
 
-		return null;
+		if (productList.getId() == id) {
+			productList.setLabel(updatedCategory);
+		}
+
+		return productList;
 	}
 
 	// update an existing ProductCategory in the list
 	@Override
-	public ProductCategory update(ProductCategory category) {
+	public ProductCategory update (ProductCategory category) {
 		//it supposed to add ID to current list of Categories
 		return null;
 	}
@@ -70,7 +79,8 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 	// access the current list of ProductCategories
 	@Override
 	public List<ProductCategory> list() {
-		return new ArrayList<ProductCategory>();
+		return null;
+		//new ArrayList<ProductCategory>();
 	}
 
 }
